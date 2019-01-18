@@ -2,7 +2,7 @@
 " Description: avrgcc linter for c files
 
 call ale#Set('c_avrgcc_executable', 'avr-gcc')
-call ale#Set('c_avrgcc_options', '-mmcu=attiny2313')
+call ale#Set('c_avrgcc_options', '-mmcu='.get(g:, 'ale_avrgcc_mmcu', ''))
 
 function! ale_linters#c#avrgcc#GetCommand(buffer, output) abort
     let l:cflags = ale#c#GetCFlags(a:buffer, a:output)
