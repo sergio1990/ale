@@ -73,6 +73,7 @@ other content at [w0rp.com](https://w0rp.com).
     15. [How can I configure my C or C++ project?](#faq-c-configuration)
     16. [How can I configure ALE differently for different buffers?](#faq-buffer-configuration)
     17. [How can I configure the height of the list in which ALE displays errors?](#faq-list-window-height)
+    18. [How to setup avrgcc linter to check the projects for AVR Atmel microcontroller?](#faq-avrgcc-setup)
 
 <a name="supported-languages"></a>
 
@@ -898,3 +899,25 @@ To set a default height for the error list, use the `g:ale_list_window_size` var
 " Show 5 lines of errors (default: 10)
 let g:ale_list_window_size = 5
 ```
+
+<a name="faq-avrgcc-setup">
+
+### 5.xviii. How to setup avrgcc linter to check the projects for AVR Atmel microcontroller?
+
+For first you need to configure the available linters for the C files:
+
+```vim
+let g:ale_linters = {
+      \   'c': ['avrgcc'],
+      \}
+```
+
+The `avr-gcc` utility requires the microcontroller model as an argument due to
+each microcontroller has different ports, timers and other settings. For that,
+the global variable has been added `ale_avrgcc_mmcu`. You can set it like in the example:
+
+```vim
+let g:ale_avrgcc_mmcu = 'attiny2313'
+```
+
+For all available MCU variants, please, use this [reference](https://gcc.gnu.org/onlinedocs/gcc/AVR-Options.html).
