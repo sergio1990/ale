@@ -904,11 +904,12 @@ let g:ale_list_window_size = 5
 
 ### 5.xviii. How to setup avrgcc linter to check the projects for AVR Atmel microcontroller?
 
-For first you need to configure the available linters for the C files:
+For first you need to configure the available linters for the C/C++ files:
 
 ```vim
 let g:ale_linters = {
       \   'c': ['avrgcc'],
+      \   'cpp': ['avrgcc'],
       \}
 ```
 
