@@ -922,3 +922,12 @@ let g:ale_avrgcc_mmcu = 'attiny2313'
 ```
 
 For all available MCU variants, please, use this [reference](https://gcc.gnu.org/onlinedocs/gcc/AVR-Options.html).
+
+Also, the another global variable `g:ale_avrgcc_args` exists to pass to the
+syntax checking command additional arguments. For instance, the level of the
+optimizations. That's very useful due to I caught the situation when I had the
+false errors and setting the optimizations level fixed them:
+
+```vim
+let g:ale_avrgcc_args = '-O3'
+```
